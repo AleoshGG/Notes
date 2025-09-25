@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/notes.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#6200ea" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Notes</title>
+  </head>
+  <body>
+    <div class="content">
+      <nav class="navigation">
+        <div class="explorer-header">
+          <span>Libros</span>
+          <div id="newBookSection"></div>
+          <div class="explorer-actions">
+            <button id="addNewBook" class="action-btn" title="Nuevo Libro">
+              +
+            </button>
+          </div>
+        </div>
+
+        <ul class="file-tree"></ul>
+      </nav>
+
+      <main class="notes">
+        <div class="notes-header">
+          <div class="h-path">
+            <h3 id="path">Book/Section/Title001</h3>
+          </div>
+        </div>
+
+        <div id="welcome-screen">
+          <img src="assets/welcome.png" alt="Bienvenida" width="200px" />
+          <h2>Selecciona una nota para empezar</h2>
+          <p>O crea un nuevo libro para organizar tus ideas.</p>
+        </div>
+
+        <div class="note-editor">
+          <input type="text" id="note-title" placeholder="Titulo" />
+          <textarea id="note-description" placeholder="Descripción"></textarea>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="./main.mjs"></script>
+  </body>
+</html>

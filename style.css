@@ -1,0 +1,223 @@
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  box-sizing: border-box; /* Ayuda a que los anchos y padding funcionen mejor */
+}
+
+body {
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+  margin: 0;
+  height: 100vh;
+  overflow: hidden; /* Evita el scroll en la página principal */
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+/* --- Estilos para la barra de navegación tipo VS Code --- */
+
+.navigation {
+  background-color: #252526; /* Color de fondo de la barra lateral de VSCode */
+  width: 280px; /* Ancho típico para un explorador de archivos */
+  height: 100vh;
+  padding: 0;
+  border-right: 1px solid #333333;
+  color: #cccccc;
+  overflow-y: auto; /* Permite scroll si hay muchos archivos */
+}
+
+/* Encabezado "EXPLORER" */
+.explorer-header,
+.name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 500;
+  width: 100%;
+}
+
+/* Botón de acción (+) */
+.action-btn {
+  background: none;
+  border: none;
+  color: #cccccc;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+}
+
+.action-btn:hover {
+  color: #ffffff;
+}
+
+/* Base del árbol de archivos */
+.file-tree {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-tree ul {
+  list-style: none;
+  padding-left: 20px; /* Indentación para archivos dentro de carpetas */
+}
+
+/* Estilo general para carpetas y archivos */
+.file-tree li {
+  cursor: pointer;
+}
+
+.folder-header,
+.file {
+  display: flex;
+  align-items: center;
+  padding: 4px 15px;
+}
+
+.folder-header:hover,
+.file:hover {
+  background-color: #2a2d2e; /* Color al pasar el ratón */
+}
+
+/* Archivo seleccionado/activo */
+.file.active {
+  background-color: #37373d;
+  color: #ffffff;
+}
+
+/* --- Íconos (usando pseudo-elementos ::before) --- */
+
+.folder-header::before,
+.file::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Ícono de flecha (chevron) para las carpetas */
+.folder-header::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23cccccc"><path d="M6 4l4 4-4 4z"/></svg>');
+  transition: transform 0.1s ease-in-out;
+}
+
+/* Flecha de carpeta abierta (rotada) */
+.folder.open > .folder-header::before {
+  transform: rotate(90deg);
+}
+
+/* Ícono de archivo (después de la flecha) */
+.file::before {
+  /* Usamos un SVG simple de un documento */
+  background-image: url("assets/notes.ico");
+  /* La indentación del archivo la controla el padding-left del UL padre */
+}
+
+/* Lógica para ocultar/mostrar contenido de carpetas */
+.folder:not(.open) > ul {
+  display: none;
+}
+/* --- Área de Notas Principal --- */
+.notes {
+  width: 75%;
+  padding: 20px 40px;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.h-user {
+  display: flex;
+  align-items: center;
+}
+
+.u-icon {
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+/* --- Editor de la Nota --- */
+.note-editor {
+  margin-top: 30px;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 25px;
+  height: 75vh;
+  background-color: #2a2a2a; /* Un gris un poco más claro que el fondo */
+}
+
+/* Quitar estilos por defecto y añadir los nuestros */
+#note-title,
+#note-description {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+}
+
+#note-title:focus,
+#note-description:focus {
+  outline: none; /* Quita el borde azul al hacer clic */
+}
+
+#note-title {
+  font-size: 2em;
+  font-weight: 500;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ffffff;
+}
+
+#note-description {
+  font-size: 1.1em;
+  margin-top: 20px;
+  height: 85%;
+  resize: none; /* Evita que el usuario pueda cambiar el tamaño del textarea */
+}
+
+
+
+/* Clase para ocultar elementos con JavaScript */
+.hidden {
+  display: none !important;
+}
+
+/* Estilos para la pantalla de bienvenida */
+#welcome-screen {
+  text-align: center;
+  margin-top: 100px;
+  color: #888;
+}
+
+#welcome-screen h2 {
+  color: #ccc;
+}
