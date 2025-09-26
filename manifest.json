@@ -1,21 +1,27 @@
 {
   "name": "Notes App",
   "short_name": "Notes",
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6200ea",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "assets/notes.ico",
+      "src": "assets/notes 1.png",
       "sizes": "192x192",
-      "type": "image/ico"
+      "type": "image/png"
     },
     {
-      "src": "assets/notes.ico",
+      "src": "assets/notes 2.png",
       "sizes": "512x512",
-      "type": "image/ico"
+      "type": "image/png"
+    },
+
+    {
+      "src": "assets/notes 3.png",
+      "sizes": "144x144",
+      "type": "image/png"
     }
   ]
 }
